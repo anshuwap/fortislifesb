@@ -13,7 +13,6 @@
 
 
 
-
 </head>
 
 <body class="page-home page-home-home no-padding-top">
@@ -34,7 +33,7 @@
           <div class="container">
                <ul class="nav">
                     <!-- Logo Link -->
-                    <li class="logo"><a href="http://teensintech.com/"><img src="./index_files/logo-color.jpg" alt="Teens in Tech" width="242" height="40"></a></li>
+                    <li class="logo"><a href="#"><img src="./index_files/logo-color.jpg" alt="Teens in Tech" width="242" height="40"></a></li>
                                         <li class="show-more">
                           <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
                           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -112,7 +111,7 @@
      </div>
 </div>
 </div> <!-- #header --><section id="spotlight" class="events">
-<iframe src="http://localhost/fortis/nivo/demo/demo.html" width="1300" height="300" scrolling="no"></iframe>
+<iframe src="http://localhost/fortis/nivo/demo/demo.html" width="1400" height="300" scrolling="no" style="margin-top: -100px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
      <div class="">
           <div class="wrap">
                <h1>Welcome to Fortis Shalimar Bagh</h1>
@@ -126,13 +125,17 @@
      <div class="container">
           
           <div class="row portal-columns">
+          
                <div class="span4 col col-job-posts">
                     <!-- <h3>Current Discussions</h3> -->
                     <div class="col-inner">
-                         <ul class="discussion-listing normal-list floater">
-                              <li class="title">Latest Updates From Shalimar Bagh</li>
+                    <ul class="discussion-listing normal-list floater">
+                    <li  class="title">Latest Updates From Shalimar Bagh</li></ul>
+
+                         <ul id="news"  class="discussion-listing normal-list floater"  >
                               
-                                                            <li class="link">
+                                                  
+                                                            <li class="link" >
                                    <a href="http://teensintech.com/discussions/the-incubator-for-out-of-towne" class="link-wrap">
                                         <img src="./index_files/avatar.php" class="avatar" height="60" width="60">
                                         <div class="item-content">
@@ -372,6 +375,44 @@
 <script type="text/javascript" src="./index_files/jquery.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="./index_files/bootstrap.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="./index_files/combo-65-20120831.js" charset="UTF-8"></script>
+<script type="text/javascript" src="./index_files/jquery.newsticker.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+$(
+	function()
+	{
+		// drop shadow effect
+		var $outer = $("#outer");
+		var width = $outer.css("width");
+		var css = {
+			"margin": "12px auto",
+			"width": $outer.css("width"),
+			"background": "#073e8f" 
+		}
+		$outer.css({"width": "auto", "left": -3, "top": -3, "margin": 0}).wrap(document.createElement("div")).parent().css(css).after(document.createElement("div"));
+	}
+);
+</script> 
+<script type="text/javascript">
+$(document).ready(
+	function()
+	{
+		$("#news").newsTicker();
+		
+	}
+);
+</script>
+<!-- <style type="text/css"> -->
+<!-- .newsticker { -->
+<!-- 	list-style-type: none; -->
+<!-- 	border: 1px dashed #fff; -->
+<!-- 	background: #050c44; -->
+<!-- 	padding: 3px; -->
+<!-- 	margin: 0; -->
+<!-- } -->
+<!-- </style> -->
+
+
 
 <script type="text/javascript">
 
@@ -379,6 +420,7 @@ $(document).ready(function () {
      });
 
 </script>
+
 
 
 
