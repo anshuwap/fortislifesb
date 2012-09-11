@@ -46,20 +46,60 @@
               <div class="nav-collapse">
                     <!-- Right Navigation -->
                     <ul class="nav pull-right">
-                                                  <li class="parent "><a href="#" class="parent-link">MyPal HR</a></li>
-                                                  <li class="parent "><a href="#" class="parent-link">Medtrak</a></li>
+                    <?php
+mysql_connect ("localhost","root","");
+mysql_select_db ("fortislifesb");
+$query = mysql_query("select * from header where id=1");
+while ($row = mysql_fetch_array($query)) {
+           
+               ?>                                   <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+                                                  <?php 
+                                                  $query = mysql_query("select * from header where id=2");
+                                                  while ($row = mysql_fetch_array($query)) {
+                                                      ?>
+                                                     <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
                          
                          
-                         <li class="parent "><a href="#" class="parent-link">Lost & Found</a></li>
-                         <li class="parent "><a href="#" class="parent-link">Buy & Sell</a></li>
-                         <li class="parent "><a href="" class="parent-link">Blog</a></li>
+                         <?php 
+                                                  $query = mysql_query("select * from header where id=3");
+                                                  while ($row = mysql_fetch_array($query)) {
+                                                      ?>
+                                                     <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+                         <?php 
+                                                  $query = mysql_query("select * from header where id=4");
+                                                  while ($row = mysql_fetch_array($query)) {
+                                                      ?>
+                                                     <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li><li class="parent "><a href="" class="parent-link">Blog</a></li>
                          
-                         <li class="parent about-page ">
-                              <a href="http://teensintech.com/about" class="parent-link">About</a>
+                                                 <li class="parent about-page ">
+                              <?php 
+                                                  $query = mysql_query("select * from header where id=6");
+                                                  while ($row = mysql_fetch_array($query)) {
+                                                      ?>
+                      <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+                      <li class="parent "><a href="#" class="parent-link"></a></li>
 							  
                          </li>
-                         
-                         
+ <?php 
+ if(isset($_POST["submit"]))
+{
+$result=mysql_query("select * from login where Username ='$_POST[user]' AND  Password='$_POST[password]'") or die(mysql_error());
+if(mysql_num_rows($result)>0){
+	  session_start();
+	  $_SESSION['ak']=$_POST['user'];
+	  //echo " $user";
+	  ?>
+    <script>location.href="show.php"</script>
+    <?php
+	  }
+	  else
+	  {
+	  echo "<u>". "<B>"." Not valid user"."</B>"."</u>"."<br>";
+	  }
+	  
+ }
+
+?>     
                          <li class="divider-vertical"></li>
                                                        <li class="parent hidden-desktop  "><a href="#" class="parent-link">Login</a></li>
                               
