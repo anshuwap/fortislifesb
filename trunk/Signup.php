@@ -1,11 +1,11 @@
  <?php
-if(isset($_POST['Submit'])){
-   $Username =$_POST[Username ];
-   $Password=$_POST[Password];
+if(isset($_POST['register'])){
+   $Username =$_POST['use'];
+   $Password=$_POST['password'];
  mysql_connect("localhost","root","")or die("hii");
- mysql_select_db("fortislifesb");
+ mysql_select_db("fortislife");
  $result=mysql_query("insert into login values( '".$Username ."' ,'".$Password."')") or die(mysql_error());
-	 if($result>0)
+	 if($result==1)
 	 {
 	     header("location:index.php");
 	 }
@@ -25,20 +25,27 @@ if(isset($_POST['Submit'])){
 
 <body>
 <form id="form1" name="form1" method="post" action="">
-  <table width="339" align="center">
-    <tr>
-      <th colspan="2" scope="col">Signup</th>
+  <table bgcolor="#00CCCC" width="384" height="133" border="25" align="center" cellpadding="0" cellspacing="0">
+    <tr align="center">
+      <th colspan="3" align="center">Registration</th>
     </tr>
-    <tr>
-      <td width="134">username</td>
-      <td width="193"><input type="text" name="Username " /></td>
+    <tr align="center">
+      <td width="208" height="55" bgcolor="#66CCCC" color="red">Username</td>
+      <td width="196"><label>
+        <input name="user" type="text" id="user"size="30"/>
+      </label></td>
     </tr>
-    <tr>
-      <td>password</td>
-      <td><input type="text" name="Password" /></td>
+    <tr align="center">
+      <td bgcolor="#66CCCC" color="red">Password</td>
+      <td><label>
+        <input name="password" type="password" id="password"size="30" />
+      </label></td>
     </tr>
-    <tr>
-      <td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" /></td>
+    <tr valign="middle">
+      <td height="35" colspan="2" align="center"><label>
+        <input name="register" type="submit" id="register" value="register" />
+        <h8><blink></blink></h8>
+      </label></td>
     </tr>
   </table>
 </form>

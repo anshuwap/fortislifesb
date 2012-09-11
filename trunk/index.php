@@ -48,19 +48,19 @@
                     <ul class="nav pull-right">
                     <?php
 mysql_connect ("localhost","root","");
-mysql_select_db ("fortislifesb");
+mysql_select_db ("fortislife");
 $query = mysql_query("select * from header where id=1");
 while ($row = mysql_fetch_array($query)) {
            
-               ?>                                   <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
-                                                  <?php 
-                                                  $query = mysql_query("select * from header where id=2");
+               ?>                    <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+                                          <?php 
+                                             $query = mysql_query("select * from header where id=2");
                                                   while ($row = mysql_fetch_array($query)) {
                                                       ?>
                                                      <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
                          
                          
-                         <?php 
+                                                  <?php 
                                                   $query = mysql_query("select * from header where id=3");
                                                   while ($row = mysql_fetch_array($query)) {
                                                       ?>
@@ -87,7 +87,7 @@ $result=mysql_query("select * from login where Username ='$_POST[user]' AND  Pas
 if(mysql_num_rows($result)>0){
 	  session_start();
 	  $_SESSION['ak']=$_POST['user'];
-	  //echo " $user";
+	echo " $user";
 	  ?>
     <script>location.href="show.php"</script>
     <?php
@@ -108,13 +108,13 @@ if(mysql_num_rows($result)>0){
                                         Login <b class="caret"></b>
                                    </a>
                                    <div class="dropdown-menu login-dropdown-form">
-                                        <form action="show.php" method="post" accept-charset="utf-8">
+                                        <form action="" method="post" accept-charset="utf-8">
 										<div style="display:none">
 <input type="hidden" name="form_key" value="765c6175a0ed479b94efaabc59c0531c">
 </div>                                             <label>
                                                   <span>Username/Email</span>
                                                   
-                                                  <input type="text" name="key" id="login-dropdown-input" placeholder="" class="span3">
+                                                  <input type="text" name="user" id="login-dropdown-input" placeholder="" class="span3">
                                              </label>
                                              
                                              <label>
@@ -124,7 +124,8 @@ if(mysql_num_rows($result)>0){
                                              </label>
                                              
                                              <div class="form-actions">
-                                                  <input type="submit" class="btn btn-primary btn-large" value="Log In"> <span class="signup"><a href="#">Signup!</a></span>
+                                                  <input type="submit" name="submit" class="btn btn-primary btn-large" value="Log in"> 
+                                                  <span class="signup"><a href="signup.php">Signup!</a></span>
                                              </div>
                                         </form>                                   </div>
                               </li>
@@ -152,7 +153,7 @@ if(mysql_num_rows($result)>0){
      </div>
 </div>
 </div> <!-- #header --><section id="spotlight" class="events">
-<iframe src="http://localhost/fortis/nivo/demo/demo.html" width="1400" height="300" scrolling="no" style="margin-top: -100px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
+<iframe src="http://localhost/fortis/fortislifesb/nivo/demo/demo.html" width="1400" height="300" scrolling="no" style="margin-top: -100px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
      <div class="">
           <div class="wrap">
                <h1>Welcome to Fortis Shalimar Bagh</h1>
@@ -171,53 +172,76 @@ if(mysql_num_rows($result)>0){
                     <!-- <h3>Current Discussions</h3> -->
                     <div class="col-inner">
                     <ul class="discussion-listing normal-list floater">
-                    <li  class="title">Latest Updates From Shalimar Bagh</li></ul>
+                    <?php 
+                    $query = mysql_query("select * from latest where id=1");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>                    
+                                         
+                        
+                    <li  class="title"><?php echo $row[1];?></li><?php }?></ul>
 
                          <ul id="news"  class="discussion-listing normal-list floater"  >
                               
-                                                  
+                                                  <?php 
+                    $query = mysql_query("select * from latest where id=2");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
                                                             <li class="link" >
                                    <a href="http://teensintech.com/discussions/the-incubator-for-out-of-towne" class="link-wrap">
-                                        <img src="./index_files/avatar.php" class="avatar" height="60" width="60">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="50" width="50">
                                         <div class="item-content">
-                                             <h4>Incubator For Out-of-Towners</h4>
-                                             <span class="listing-time">Saturday at 5:48PM</span>
+              
+                                             <h4><?php echo $row[1];?></h4>
+                                          
+                                             
+                                             <span class="listing-time"><?php echo $row[3];?></span><?php }?>
                                         </div>
                                    </a>
                                                                  </li>
                                                             <li class="link">
+                                           <?php $query = mysql_query("select * from latest where id=3");
+                                           while ($row = mysql_fetch_array($query)) {?>
+               
                                    <a href="http://teensintech.com/discussions/startup49-inhouse-developer-n-auxn" class="link-wrap">
-                                        <img src="./index_files/micro.jpg" class="avatar" height="60" width="60">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
                                         <div class="item-content">
-                                             <h4>Startup49- Inhouse Developer n</h4>
-                                             <span class="listing-time">August 28th @ 10:39 pm</span>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
                                                                  </li>
                                                             <li class="link">
                                    <a href="http://teensintech.com/discussions/the-future-of-teens-in-tech-yt" class="link-wrap">
-                                        <img src="./index_files/avatar(1).php" class="avatar" height="60" width="60">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
                                         <div class="item-content">
-                                             <h4>The Future of Teens in Tech</h4>
-                                             <span class="listing-time">August 29th @ 4:45 am</span>
+                                        <?php $query = mysql_query("select * from latest where id=4");
+                                         while ($row = mysql_fetch_array($query)) {?>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
                                                                  </li>
                                                             <li class="link">
+                                                            <?php $query = mysql_query("select * from latest where id=4");
+                                                             while ($row = mysql_fetch_array($query)) {?>
                                    <a href="http://teensintech.com/discussions/so-i-was-making-a-slide-deck-ujbq" class="link-wrap">
-                                        <img src="./index_files/avatar(2).php" class="avatar" height="60" width="60">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
                                         <div class="item-content">
-                                             <h4>So I was making a slide deck..</h4>
-                                             <span class="listing-time">August 21st @ 11:14 pm</span>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
                                                                  </li>
                                                             <li class="link">
+                                                            <?php $query = mysql_query("select * from latest where id=5");
+                     while ($row = mysql_fetch_array($query)) {?>
                                    <a href="http://teensintech.com/discussions/looking-for-staff-without-the-payroll-vvycq" class="link-wrap">
-                                        <img src="./index_files/avatar(3).php" class="avatar" height="60" width="60">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
                                         <div class="item-content">
-                                             <h4>Staffing a startup</h4>
-                                             <span class="listing-time">August 10th @ 3:19 am</span>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
                                                                  </li>
@@ -240,7 +264,7 @@ if(mysql_num_rows($result)>0){
                                                             <li>
                                    <a href="http://teensintech.com/discussions/3661" class="quote-wrap">
                                         <div class="quote">
-                                                                                          <p>That would be great as getting to the valley isn't the problem, just housing and…</p>
+                               <p>That would be great as getting to the valley isn't the problem, just housing andï¿½</p>
                                         
                                              <div class="arrow"><div class="fill"></div></div>
                                         </div>
@@ -259,7 +283,7 @@ if(mysql_num_rows($result)>0){
                                                             <li>
                                    <a href="http://teensintech.com/discussions/3660" class="quote-wrap">
                                         <div class="quote">
-                                                                                          <p>I would love to to be their. But their aren't many options when you live…</p>
+                                                                                          <p>I would love to to be their. But their aren't many options when you liveï¿½</p>
                                         
                                              <div class="arrow"><div class="fill"></div></div>
                                         </div>
@@ -278,7 +302,7 @@ if(mysql_num_rows($result)>0){
                                                             <li>
                                    <a href="http://teensintech.com/discussions/3659" class="quote-wrap">
                                         <div class="quote">
-                                                                                          <p>I really like this idea. This is a lot like something I was looking to…</p>
+                                                                                          <p>I really like this idea. This is a lot like something I was looking toï¿½</p>
                                         
                                              <div class="arrow"><div class="fill"></div></div>
                                         </div>
@@ -308,7 +332,7 @@ if(mysql_num_rows($result)>0){
                                         <img src="./index_files/saved_resource" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Microsoft Imagine Cup 2013: More Expansive,…</h4>
+                                             <h4>Microsoft Imagine Cup 2013: More Expansive,ï¿½</h4>
                                              <span class="listing-time">August 10th @ 2:10 am</span>
                                         </div>
                                    </a>
@@ -328,7 +352,7 @@ if(mysql_num_rows($result)>0){
                                         <img src="./index_files/saved_resource(2)" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Teens in Tech 2012 Conference Coverage:…</h4>
+                                             <h4>Teens in Tech 2012 Conference Coverage:ï¿½</h4>
                                              <span class="listing-time">August 10th @ 2:10 am</span>
                                         </div>
                                    </a>
@@ -338,7 +362,7 @@ if(mysql_num_rows($result)>0){
                                         <img src="./index_files/saved_resource(3)" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Teens in Tech 2012 Conference Coverage:…</h4>
+                                             <h4>Teens in Tech 2012 Conference Coverage:ï¿½</h4>
                                              <span class="listing-time">August 10th @ 2:10 am</span>
                                         </div>
                                    </a>
@@ -348,7 +372,7 @@ if(mysql_num_rows($result)>0){
                                         <img src="./index_files/saved_resource(4)" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Teens in Tech 2012 Conference Coverage:…</h4>
+                                             <h4>Teens in Tech 2012 Conference Coverage:ï¿½</h4>
                                              <span class="listing-time">August 10th @ 2:10 am</span>
                                         </div>
                                    </a>
@@ -358,7 +382,7 @@ if(mysql_num_rows($result)>0){
                                         <img src="./index_files/saved_resource(5)" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Teens in Tech 2012 Conference Coverage:…</h4>
+                                             <h4>Teens in Tech 2012 Conference Coverage:ï¿½</h4>
                                              <span class="listing-time">August 10th @ 2:10 am</span>
                                         </div>
                                    </a>
@@ -379,7 +403,7 @@ if(mysql_num_rows($result)>0){
                          <form action="http://teensintech.us1.list-manage.com/subscribe/post" method="post" accept-charset="utf-8">                              <input type="hidden" name="u" value="bac9748b89c8581e1af0ea1fc">
                               <input type="hidden" name="id" value="b8cd2ebaf0">
                               
-                              <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" placeholder="email@domain.com…" class="email-input"> <input type="button" class="btn btn-green btn-large" value="Sign me up!">
+                              <input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" placeholder="email@domain.comï¿½" class="email-input"> <input type="button" class="btn btn-green btn-large" value="Sign me up!">
                          </form>                    </div>
                </div>
           </div>
@@ -401,7 +425,7 @@ if(mysql_num_rows($result)>0){
                          <li><a href="">Terms Of Use</a></li>
                          <li><a href="">Privacy</a></li>
                     </ul>
-                                        <p class="">© 2012 <a href="http://fortishealthcare.com/">Fortis Hospital Shalimar Bagh, </a> — Made with love in <a href="#">Upscale</a> and IT — We ? <a href="#">Cloud</a> and <a href="#">Amazon</a></p>
+                                        <p class="">ï¿½ 2012 <a href="http://fortishealthcare.com/">Fortis Hospital Shalimar Bagh, </a> ï¿½ Made with love in <a href="#">Upscale</a> and IT ï¿½ We ? <a href="#">Cloud</a> and <a href="#">Amazon</a></p>
                </div>
                
                <div class="hidden-phone right">
@@ -468,7 +492,7 @@ $(document).ready(function () {
 <!-- End Javascript -->
 
 <div id="feedback-link"><div class="feedback-inner"><a href="./index_files/index.html">Feedback?</a></div></div>
-<div id="loading" style="display:none;">Loading…</div>
+<div id="loading" style="display:none;">Loadingï¿½</div>
  
 
-<div id="cortex-pie-0" class="cortex-pie" style="display: none; "><svg style="overflow: hidden; position: relative; " height="342" version="1.1" width="512" xmlns="http://www.w3.org/2000/svg"><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " x="0" y="0" width="1366" height="768" r="0" rx="0" ry="0" fill="#000000" stroke="#000" fill-opacity="0" stroke-opacity="0"></rect><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">Created with Raphaël 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); "></defs><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#95e4e8" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/twitter.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#6481b5" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/facebook.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#545b6c" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/tumblr.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#df5747" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/gmail.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#ff78be" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/sharetoall.png"></svg></div><div id="cortex-overlay" style="display: none; "></div><img id="cortex-focus" style="display: none; "><div id="cortex-rainbow" style="display: none; "></div><div id="cortex-popups"></div><i title="Raphaël Colour Picker" style="display: none; color: transparent; "></i></body></html>
+<div id="cortex-pie-0" class="cortex-pie" style="display: none; "><svg style="overflow: hidden; position: relative; " height="342" version="1.1" width="512" xmlns="http://www.w3.org/2000/svg"><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " x="0" y="0" width="1366" height="768" r="0" rx="0" ry="0" fill="#000000" stroke="#000" fill-opacity="0" stroke-opacity="0"></rect><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">Created with Raphaï¿½l 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); "></defs><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#95e4e8" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/twitter.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#6481b5" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/facebook.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#545b6c" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/tumblr.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#df5747" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/gmail.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#ff78be" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/sharetoall.png"></svg></div><div id="cortex-overlay" style="display: none; "></div><img id="cortex-focus" style="display: none; "><div id="cortex-rainbow" style="display: none; "></div><div id="cortex-popups"></div><i title="Raphaï¿½l Colour Picker" style="display: none; color: transparent; "></i></body></html>

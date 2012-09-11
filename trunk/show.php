@@ -1,5 +1,4 @@
 <?php
-$ak=NULL;
 session_start();
 $un=$_SESSION['ak'];
 ?>
@@ -19,7 +18,7 @@ $un=$_SESSION['ak'];
 	  echo $_GET['msg'];
 	  }?>
       </center>
-      <b><?php echo $un ?><b>&nbsp;&nbsp;&nbsp;&nbsp; <a href="logout.php">Logout</a></th>
+      <b><?php echo $un; ?><b>&nbsp;&nbsp;&nbsp;&nbsp; <a href="logout.php">Logout</a></th>
     </tr>
 	</table>
 </form>
