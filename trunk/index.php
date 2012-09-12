@@ -146,7 +146,7 @@ if(mysql_num_rows($result)>0){
                <!-- This is removed once it's loaded via AJAX -->
                <a href="http://teensintech.com/notifications" id="ntfy-first-poll-holder">
                     <div class="single-notification no-author system-center" note-id="1" align="center">
-                         <span class="notification-content"><center><img src="./index_files/ajax-loader-black.gif" class="notify-loading-img"> Loading</center></span>
+<span class="notification-content"><center><img src="./index_files/ajax-loader-black.gif" class="notify-loading-img"> Loading</center></span>
                     </div>
                </a>
           </div>
@@ -157,7 +157,7 @@ if(mysql_num_rows($result)>0){
      <div class="">
           <div class="wrap">
                <h1>Welcome to Fortis Shalimar Bagh</h1>
-               <h5>Your Caring Hospital HAHAH.</h5>
+               <h5>Your Caring Hospital Mithun .</h5>
           </div>
      </div>
 </section>
@@ -212,19 +212,11 @@ if(mysql_num_rows($result)>0){
                                         </div>
                                    </a>
                                                                  </li>
-                                                            <li class="link">
-                                   <a href="http://teensintech.com/discussions/the-future-of-teens-in-tech-yt" class="link-wrap">
-                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
-                                        <div class="item-content">
-                                        <?php $query = mysql_query("select * from latest where id=4");
-                                         while ($row = mysql_fetch_array($query)) {?>
-                                             <h4><?php echo $row[1]; ?></h4>
-                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
-                                        </div>
-                                   </a>
-                                                                 </li>
-                                                            <li class="link">
-                                                            <?php $query = mysql_query("select * from latest where id=4");
+						
+                                                                    
+                                                                          
+                            <li class="link">
+                                                 <?php $query = mysql_query("select * from latest where id=4");
                                                              while ($row = mysql_fetch_array($query)) {?>
                                    <a href="http://teensintech.com/discussions/so-i-was-making-a-slide-deck-ujbq" class="link-wrap">
                                         <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
@@ -235,7 +227,7 @@ if(mysql_num_rows($result)>0){
                                    </a>
                                                                  </li>
                                                             <li class="link">
-                                                            <?php $query = mysql_query("select * from latest where id=5");
+                    <?php $query = mysql_query("select * from latest where id=5");
                      while ($row = mysql_fetch_array($query)) {?>
                                    <a href="http://teensintech.com/discussions/looking-for-staff-without-the-payroll-vvycq" class="link-wrap">
                                         <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
@@ -246,11 +238,13 @@ if(mysql_num_rows($result)>0){
                                    </a>
                                                                  </li>
                                                             <li class="link">
-                                   <a href="http://teensintech.com/discussions/got-an-exciting-student-run-venture-get-funding-thkjm" class="link-wrap">
-                                        <img src="./index_files/avatar(4).php" class="avatar" height="60" width="60">
+					<?php $query = mysql_query("select * from latest where id=6");
+                     while ($row = mysql_fetch_array($query)) {?>
+                        <a href="http://teensintech.com/discussions/got-an-exciting-student-run-venture-get-funding-thkjm" class="link-wrap">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
                                         <div class="item-content">
-                                             <h4>Get funding for your venture!</h4>
-                                             <span class="listing-time">August 10th @ 2:10 am</span>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
                                                                  </li>
@@ -261,60 +255,83 @@ if(mysql_num_rows($result)>0){
                               <div class="span4 col col-discussion-posts">
                     <div class="col-inner">
                          <ul class="normal-list floater">
+                    <?php $query = mysql_query("select * from latest where id=7");
+                     while ($row = mysql_fetch_array($query)) {?>
                                                             <li>
                                    <a href="http://teensintech.com/discussions/3661" class="quote-wrap">
                                         <div class="quote">
-                               <p>That would be great as getting to the valley isn't the problem, just housing and�</p>
+                               <p><?php echo $row[1]; ?></p><?php }?>
                                         
                                              <div class="arrow"><div class="fill"></div></div>
                                         </div>
                                    </a>
+                      <?php $query = mysql_query("select * from latest where id=8");
+                     while ($row = mysql_fetch_array($query)) {?>
+                    
                                                                       <div class="author">
                                         <a href="http://teensintech.com/profiles/kiwan258" class="author-link">
                                              <!-- <a href="#" class="btn btn-green">View Profile</a> -->
                                              
-                                             <img src="./index_files/avatar(5).php" height="45" width="45" class="avatar">
+                                             <img src="./index_files/<?php echo $row[2]; ?>" height="45" width="45" class="avatar">
                                              
-                                             <h4 class="author-slug">@kiwan258</h4>
-                                             <h5 class="author-meta">KiWan Thrash</h5>
+                                             <h4 class="author-slug"><?php echo $row[1]; ?></h4>
+                                             <h5 class="author-meta"><?php echo $row[3]; ?> </h5><?php }?>
                                         </a>
                                    </div>
                                                                  </li>
+                      <?php $query = mysql_query("select * from latest where id=9");
+                     while ($row = mysql_fetch_array($query)) {?>
+                    
                                                             <li>
                                    <a href="http://teensintech.com/discussions/3660" class="quote-wrap">
                                         <div class="quote">
-                                                                                          <p>I would love to to be their. But their aren't many options when you live�</p>
+                                  <p><?php echo $row[1]; ?></p><?php }?>
                                         
                                              <div class="arrow"><div class="fill"></div></div>
                                         </div>
                                    </a>
+                        <?php $query = mysql_query("select * from latest where id=10");
+                     while ($row = mysql_fetch_array($query)) {?>
+
                                                                       <div class="author">
                                         <a href="http://teensintech.com/profiles/todd" class="author-link">
                                              <!-- <a href="#" class="btn btn-green">View Profile</a> -->
                                              
-                                             <img src="./index_files/micro(1).jpg" height="45" width="45" class="avatar">
+                                             <img src="./index_files/<?php echo $row[2]; ?>" height="45" width="45" class="avatar">
                                              
-                                             <h4 class="author-slug">@todd</h4>
-                                             <h5 class="author-meta">Todd Chambers</h5>
+                                             <h4 class="author-slug"><?php echo $row[1]; ?></h4>
+                                             <h5 class="author-meta"><?php echo $row[3]; ?></h5><?php }?>
                                         </a>
                                    </div>
                                                                  </li>
+                                            <?php 
+                    $query = mysql_query("select * from latest where id=11");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
                                                             <li>
                                    <a href="http://teensintech.com/discussions/3659" class="quote-wrap">
                                         <div class="quote">
-                                                                                          <p>I really like this idea. This is a lot like something I was looking to�</p>
+                                                                                          <p><?php echo $row[1]; ?></p><?php }?>
                                         
                                              <div class="arrow"><div class="fill"></div></div>
                                         </div>
+           
                                    </a>
+           <?php 
+                    $query = mysql_query("select * from latest where id=12");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
+           
                                                                       <div class="author">
                                         <a href="http://teensintech.com/profiles/ben" class="author-link">
                                              <!-- <a href="#" class="btn btn-green">View Profile</a> -->
                                              
-                                             <img src="./index_files/avatar(2).php" height="45" width="45" class="avatar">
+                                             <img src="./index_files/<?php echo $row[2]; ?>" height="45" width="45" class="avatar">
                                              
-                                             <h4 class="author-slug">@ben</h4>
-                                             <h5 class="author-meta">Ben Paster</h5>
+                                             <h4 class="author-slug"><?php echo $row[1]; ?></h4>
+                                             <h5 class="author-meta"><?php echo $row[3]; ?></h5><?php }?>
                                         </a>
                                    </div>
                                                                  </li>
@@ -324,71 +341,90 @@ if(mysql_num_rows($result)>0){
                
                <div class="span4 col col-blog-posts">
                     <div class="col-inner">
+           <?php 
+                    $query = mysql_query("select * from latest where id=13");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
                          
                                                   <ul class="normal-list floater">
-                         <li class="title">From the Blog</li>
+                         <li class="title"><?php echo $row[1]; ?></li><?php }?>
+          
+           <?php 
+                    $query = mysql_query("select * from latest where id=14");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
+ 
                                                        <li class="link">
                                    <a href="http://teensintech.com/blog/2012/08/microsoft-imagine-cup-2013" class="link-wrap">
-                                        <img src="./index_files/saved_resource" height="60" width="60" class="avatar">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Microsoft Imagine Cup 2013: More Expansive,�</h4>
-                                             <span class="listing-time">August 10th @ 2:10 am</span>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
-                                   </a>
-                              </li>
+                                   </a>                              </li>
+ <?php 
+                    $query = mysql_query("select * from latest where id=15");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
+          
                                                        <li class="link">
                                    <a href="http://teensintech.com/blog/2012/08/what-do-you-want-teensintech" class="link-wrap">
-                                        <img src="./index_files/saved_resource(1)" height="60" width="60" class="avatar">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>What Do You Want To See from Teens in Tech!</h4>
-                                             <span class="listing-time">August 10th @ 2:10 am</span>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
-                                   </a>
-                              </li>
+                                   </a>                              </li>
+ <?php 
+                    $query = mysql_query("select * from latest where id=16");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
+           
                                                        <li class="link">
                                    <a href="http://teensintech.com/blog/2012/08/teens-conference-wrapup" class="link-wrap">
-                                        <img src="./index_files/saved_resource(2)" height="60" width="60" class="avatar">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Teens in Tech 2012 Conference Coverage:�</h4>
-                                             <span class="listing-time">August 10th @ 2:10 am</span>
-                                        </div>
-                                   </a>
-                              </li>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span> <?php }?>                                       </div>
+                                   </a>                              </li>
+ <?php 
+                    $query = mysql_query("select * from latest where id=17");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
+           
                                                        <li class="link">
                                    <a href="http://teensintech.com/blog/2012/08/teensintech_rauh-conclude" class="link-wrap">
-                                        <img src="./index_files/saved_resource(3)" height="60" width="60" class="avatar">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Teens in Tech 2012 Conference Coverage:�</h4>
-                                             <span class="listing-time">August 10th @ 2:10 am</span>
-                                        </div>
-                                   </a>
-                              </li>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span>  <?php }?>                                      </div>
+                                   </a>                              </li>
+           
+ <?php 
+                    $query = mysql_query("select * from latest where id=18");
+                     while ($row = mysql_fetch_array($query)) {
+           
+                                         ?>
+           
                                                        <li class="link">
                                    <a href="http://teensintech.com/blog/2012/08/teens-in-tech-gregory-koberger" class="link-wrap">
-                                        <img src="./index_files/saved_resource(4)" height="60" width="60" class="avatar">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
                                         
                                         <div class="item-content">
-                                             <h4>Teens in Tech 2012 Conference Coverage:�</h4>
-                                             <span class="listing-time">August 10th @ 2:10 am</span>
-                                        </div>
-                                   </a>
-                              </li>
-                                                       <li class="link">
-                                   <a href="http://teensintech.com/blog/2012/08/tint_incubator-conf-2012" class="link-wrap">
-                                        <img src="./index_files/saved_resource(5)" height="60" width="60" class="avatar">
-                                        
-                                        <div class="item-content">
-                                             <h4>Teens in Tech 2012 Conference Coverage:�</h4>
-                                             <span class="listing-time">August 10th @ 2:10 am</span>
-                                        </div>
-                                   </a>
-                              </li>
+                                             <h4><?php echo $row[1]; ?></h4>
+                                             <span class="listing-time"><?php echo $row[3]; ?></span> <?php }?>                                       </div>
+                                   </a></li>
                                                   </ul>
-                                             </div>
+                 </div>
                </div>
           </div>
           
