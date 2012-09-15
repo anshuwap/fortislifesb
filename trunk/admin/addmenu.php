@@ -22,7 +22,7 @@
   		<font al color="" size="+6">Welcome Administrator</font>
 		<form action="viewmenu.php" method="post">
 <table width="26%" height="91" border="2" align="center" bordercolor="#FF0000">
-<tr>
+<tr class="preload2">
 <?php
 $dat=NULL;
 mysql_connect("localhost","root","") or die(mysql_error());
@@ -45,17 +45,13 @@ if(isset($_GET['id']))
 	
 ?>
 
-  <td height="23" colspan="2" align="center"><strong>Menus</strong></td>
-</tr>
-<tr>
-<td width="39%" height="26">id</td>
-<td width="61%"><input type="text" name="sname" value="<?php echo $dat[0];?>" /></td>
+  <td class="preload2" height="23" colspan="2" align="center"><strong>Menus</strong></td>
 </tr>
 <tr>
 <td width="39%" height="26">Navigation</td>
 <td width="61%"><input type="text" name="sname" value="<?php echo $dat[1];?>" /></td>
 </tr>
-<tr>
+<tr class="preload2">
 <td height="30" colspan="2" align="center">
 <input type="submit" name="update" value="update" /></td>
  </tr>

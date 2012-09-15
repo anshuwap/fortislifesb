@@ -54,13 +54,12 @@ $res=mysql_query("select id,Navigation from heades")or die(mysql_error());
           <td align="center" class="tbdat"><?php echo $dat[1];?></td>
             
           <td align="center"><a href="addmenu.php?id=<?php echo $dat[0];?>">Edit</a></td
-</tr>
+></tr>
 <?php 
  }
 ?>		
 <tr>
-<td> </td
-></tr>
+<td> </td></tr>
 <?php }?>
         
       </table>
