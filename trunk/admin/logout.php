@@ -5,7 +5,7 @@ unset($_SESSION['user']);
 session_destroy();
 if(empty($_SESSION['user'])){
 ?> 
-<script>location.href="index.php"</script>
+<script>location.href="http://localhost/fortislifesb/index.php"</script>
 <?php 
 }
 

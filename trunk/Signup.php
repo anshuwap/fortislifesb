@@ -1,21 +1,21 @@
  <?php
+mysql_connect("localhost","root","")or die("cannot connect");
+mysql_select_db("fortislife")or die("cannot select database");
 if(isset($_POST['register'])){
-   $Username =$_POST['use'];
-   $Password=$_POST['password'];
- mysql_connect("localhost","root","")or die("hii");
- mysql_select_db("fortislife");
- $result=mysql_query("insert into login values( '".$Username ."' ,'".$Password."')") or die(mysql_error());
-	 if($result==1)
-	 {
-	     header("location:index.php");
-	 }
-	 else
-	 {
-	   header("location:register.php");
-	   }
-       
+$name=$_POST['user'];
+$password=$_POST['password'];
+$result=mysql_query("insert into login values('$name','$password')");
+if($result==1){
+echo "sucsses fully resister";
+header("location:http://localhost/fortis/fortislifesb/index.php");
+}
+else{
+header("location:http://localhost/fortis/fortislifesb/index.php");
+echo "not a page";
+}
 }
 ?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

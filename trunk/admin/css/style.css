@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin: 0;
+padding: 0;
+width:100%;
+background:#cccccc;
+	height:500px;
+	background-image:url(../images/bodyBg.png);
+	background-repeat:repeat-x;
+	}
+
+
+#main{
+	width:800px;
+	height:auto;
+	margin:0 auto;
+	}
+#header{background-image:url(../images/headerImg.PNG); background-repeat:no-repeat; width:800px; height:220px;
+ }
+ #menu
+ {
+	 width:800px;
+	 height:40px;
+	 background:#096;
+	 float:left;
+ }
+	 
+#sliders
+ {
+	 width:800px;
+	 height:auto;
+	 background:#FFF;
+	 float:left;
+ }	 
+#content{
+	 width:800px;
+	 height:auto;
+	 background:#FFF;
+	 float:left;
+ }	 
+#addmenu{
+	 width:800px;
+	 height:auto;
+	 background:#FFF;
+	 float:left;
+}
+.rcentPr{
+font-family:Verdana, Arial, Helvetica, sans-serif; color:#1D0B80; font-size:19px;
+font-weight:bold; height:24px;}
+.serchTxtBx{border:#000000 1px ridge;  }

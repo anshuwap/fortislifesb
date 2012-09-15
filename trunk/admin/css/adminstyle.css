@@ -1,0 +1,60 @@
+@charset "utf-8";
+/* CSS Document */
+body{margin: 0;
+padding: 0;
+width:100%;
+background:#EED5FF;
+	height:500px;
+
+	}
+
+
+#main{
+	width:950px;
+	height:auto;
+	margin:0 auto;
+	background-image:url(C:\wamp\www\fortis\fortislifesb\admin\imges);
+	 background-repeat:no-repeat;
+	}
+#header{ width:950px; height:150px;
+ }
+ #menu
+ {
+	width:950px;
+	height:40px;
+	float:left;
+	background-color: #F9DFFC;
+ }
+	 
+#sliders
+ {
+	 width:950px;
+	 height:auto;
+	 
+	 float:left;
+ }	 
+#content{
+	width:950px;
+	height:auto;
+	float:left;
+	background-color: #F9DFFC;
+ }	
+ #login{
+	border: 2px  ridge;
+boder-radius 10px; 	width:340px;
+	height:auto;
+	margin:auto;
+	border-color: #A909A0;
+
+ }
+ 
+#addmenu{
+	 width:950px;
+	 height:auto;
+	 
+	 float:left;
+}
+.rcentPr{
+font-family:Verdana, Arial, Helvetica, sans-serif; color:#1D0B80; font-size:19px;
+font-weight:bold; height:24px;}
+.serchTxtBx{border:#000000 1px ridge;  }

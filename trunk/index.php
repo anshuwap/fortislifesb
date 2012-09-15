@@ -33,7 +33,7 @@
           <div class="container">
                <ul class="nav">
                     <!-- Logo Link -->
-                    <li class="logo"><a href="#"><img src="./index_files/logo-color.jpg" alt="Teens in Tech" width="242" height="40"></a></li>
+ <li class="logo"><a href="#"><img src="./index_files/logo-color.jpg" alt="Teens in Tech" width="242" height="40"></a></li>
                                         <li class="show-more">
                           <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
                           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -49,47 +49,56 @@
                     <?php
 mysql_connect ("localhost","root","");
 mysql_select_db ("fortislife");
-$query = mysql_query("select * from header where id=1");
+$query = mysql_query("select * from heades where id=1");
 while ($row = mysql_fetch_array($query)) {
-           
-               ?>                    <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
-                                          <?php 
-                                             $query = mysql_query("select * from header where id=2");
-                                                  while ($row = mysql_fetch_array($query)) {
-                                                      ?>
-                                                     <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+          ?>  
+<li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+<?php
+$query = mysql_query("select * from heades where id=2");
+while ($row = mysql_fetch_array($query)) {
+          ?>  
+
+<li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+                         <?php
+      $query = mysql_query("select * from heades where id=3");
+         while ($row = mysql_fetch_array($query)) {
+          ?>  
+
                          
+                                                  
+ <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+ <?php
+      $query = mysql_query("select * from heades where id=4");
+         while ($row = mysql_fetch_array($query)) {
+          ?>  
+
                          
-                                                  <?php 
-                                                  $query = mysql_query("select * from header where id=3");
-                                                  while ($row = mysql_fetch_array($query)) {
-                                                      ?>
-                                                     <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
-                         <?php 
-                                                  $query = mysql_query("select * from header where id=4");
-                                                  while ($row = mysql_fetch_array($query)) {
-                                                      ?>
-                                                     <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li><li class="parent "><a href="" class="parent-link">Blog</a></li>
+<li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a> <?php }?></li>
+<?php
+      $query = mysql_query("select * from heades where id=5");
+         while ($row = mysql_fetch_array($query)) {
+          ?>    
+<li class="parent "><a href="" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
                          
                                                  <li class="parent about-page ">
-                              <?php 
-                                                  $query = mysql_query("select * from header where id=6");
-                                                  while ($row = mysql_fetch_array($query)) {
-                                                      ?>
-                      <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+                           
+ <?php
+      $query = mysql_query("select * from heades where id=6");
+         while ($row = mysql_fetch_array($query)) {
+          ?>
+  <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
                       <li class="parent "><a href="#" class="parent-link"></a></li>
 							  
                          </li>
  <?php 
- if(isset($_POST["submit"]))
-{
+ if(isset($_POST["submit"])){
 $result=mysql_query("select * from login where Username ='$_POST[user]' AND  Password='$_POST[password]'") or die(mysql_error());
 if(mysql_num_rows($result)>0){
 	  session_start();
 	  $_SESSION['ak']=$_POST['user'];
-	echo " $user";
+//	echo " $user";
 	  ?>
-    <script>location.href="show.php"</script>
+    <script>location.href="admin/welcomeadmin.php"</script>
     <?php
 	  }
 	  else
@@ -105,8 +114,8 @@ if(mysql_num_rows($result)>0){
                               
                               <li class="parent visible-desktop dropdown login-dropdown">
                                    <a href="./index_files/index.html" class="dropdown-toggle parent-link" data-toggle="dropdown">
-                                        Login <b class="caret"></b>
-                                   </a>
+                                        Login <b class="caret"></b>                                   </a>
+     <iframe src="http://localhost/fortislifesb/nivo/demo/demo.html" width="1400" height="300" scrolling="no" style="margin-top: -5px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
                                    <div class="dropdown-menu login-dropdown-form">
                                         <form action="" method="post" accept-charset="utf-8">
 										<div style="display:none">
@@ -114,7 +123,7 @@ if(mysql_num_rows($result)>0){
 </div>                                             <label>
                                                   <span>Username/Email</span>
                                                   
-                                                  <input type="text" name="user" id="login-dropdown-input" placeholder="" class="span3">
+                                                  <input type="text" name="user">
                                              </label>
                                              
                                              <label>
@@ -125,12 +134,11 @@ if(mysql_num_rows($result)>0){
                                              
                                              <div class="form-actions">
                                                   <input type="submit" name="submit" class="btn btn-primary btn-large" value="Log in"> 
-                                                  <span class="signup"><a href="signup.php">Signup!</a></span>
-                                             </div>
+                                                  <span class="signup"><a href="signup.php">Signup!</a></span>                                             </div>
                                         </form>                                   </div>
                               </li>
                                              </ul>
-               </div><!-- .nav-collapse -->
+            </div><!-- .nav-collapse -->
           </div>
      </div><!-- .navbar -->
 </div>
@@ -153,8 +161,7 @@ if(mysql_num_rows($result)>0){
      </div>
 </div>
 </div> <!-- #header --><section id="spotlight" class="events">
-<iframe src="http://localhost/fortis/fortislifesb/nivo/demo/demo.html" width="1400" height="300" scrolling="no" style="margin-top: -100px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
-     <div class="">
+  <div class="">
           <div class="wrap">
                <h1>Welcome to Fortis Shalimar Bagh</h1>
                <h5>Your Caring Hospital Mithun .</h5>
