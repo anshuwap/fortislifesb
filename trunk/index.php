@@ -33,7 +33,7 @@
           <div class="container">
                <ul class="nav">
                     <!-- Logo Link -->
- <li class="logo"><a href="#"><img src="./index_files/logo-color.jpg" alt="Teens in Tech" width="242" height="40"></a></li>
+ <li class="logo"><a href="#"><img src="./index_files/logo-color.jpg" alt="Fortis" width="242" height="40"></a></li>
                                         <li class="show-more">
                           <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
                           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -48,7 +48,7 @@
                     <ul class="nav pull-right">
                     <?php
 mysql_connect ("localhost","root","");
-mysql_select_db ("fortislife");
+mysql_select_db ("fortislifesb");
 $query = mysql_query("select * from heades where id=1");
 while ($row = mysql_fetch_array($query)) {
           ?>  
@@ -115,7 +115,7 @@ if(mysql_num_rows($result)>0){
                               <li class="parent visible-desktop dropdown login-dropdown">
                                    <a href="./index_files/index.html" class="dropdown-toggle parent-link" data-toggle="dropdown">
                                         Login <b class="caret"></b>                                   </a>
-     <iframe src="http://localhost/fortislifesb/nivo/demo/demo.html" width="1400" height="300" scrolling="no" style="margin-top: -5px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
+     
                                    <div class="dropdown-menu login-dropdown-form">
                                         <form action="" method="post" accept-charset="utf-8">
 										<div style="display:none">
@@ -161,10 +161,11 @@ if(mysql_num_rows($result)>0){
      </div>
 </div>
 </div> <!-- #header --><section id="spotlight" class="events">
+<iframe src="http://localhost/fortislifesb-copy/nivo/demo/demo.html" width="1360" height="300" scrolling="no" style="margin-top:-80px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
   <div class="">
           <div class="wrap">
                <h1>Welcome to Fortis Shalimar Bagh</h1>
-               <h5>Your Caring Hospital Mithun .</h5>
+               <h5>Your Caring Hospital .</h5>
           </div>
      </div>
 </section>
@@ -177,10 +178,11 @@ if(mysql_num_rows($result)>0){
           
                <div class="span4 col col-job-posts">
                     <!-- <h3>Current Discussions</h3> -->
-                    <div class="col-inner">
+                    <div class="col-inner"><!-- Latest section is being pulled from here please refer to db if you want to see what is happening -->
                     <ul class="discussion-listing normal-list floater">
                     <?php 
                     $query = mysql_query("select * from latest where id=1");
+                    
                      while ($row = mysql_fetch_array($query)) {
            
                                          ?>                    
@@ -255,9 +257,31 @@ if(mysql_num_rows($result)>0){
                                         </div>
                                    </a>
                                                                  </li>
-                                                       </ul>
+                                                       </ul><hr>
+                    <ul class="discussion-listing normal-list floater">
+                                        
+                                         
+                    
+                    <li class="title">Birthday Week</li></ul>
+                    <ul id="news" class="discussion-listing normal-list floater newsticker">
+                              
+                                                          <li class="link" style="display: none;">                                                                                                  <li class="link" style="display: list-item; ">
+                                                          
+                                   <a href="http://teensintech.com/discussions/startup49-inhouse-developer-n-auxn" class="link-wrap">
+                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
+                                        <div class="item-content">
+                                             <h4><?php echo $row[personname]?></h4>
+                                             <span class="listing-time">August 28th @ 10:39 </span>                                        </div>
+                                   </a>
+                                                                 </li>
+						
+                                                                    
+                                                                          
+                                                                            </ul>
+                    
                     </div>
-               </div>
+                    
+          </div>
                
                               <div class="span4 col col-discussion-posts">
                     <div class="col-inner">
