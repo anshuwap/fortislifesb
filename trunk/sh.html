@@ -1,0 +1,25 @@
+<?php
+    $name = $_GET['name'];
+    getname($name);
+
+function getname($name)
+{
+
+$con = mysql_connect("localhost","root","");
+    if (!$con)
+    {
+    die('Could not connect: ' . mysql_error());
+    }
+    mysql_select_db("stackoverflow", $con);
+    $result = mysql_query("SELECT * FROM user where name = '" . $name . "'" );
+
+while($row = mysql_fetch_array($result))
+{
+
+ echo $row[0] . $row[1] . $row [2];
+
+}
+mysql_close($con);
+
+}
+?>

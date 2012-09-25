@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,6 +11,20 @@
 <link type="text/css" rel="stylesheet" href="./index_files/css" media="screen">
 <link type="text/css" rel="stylesheet" href="./index_files/combo-65-20120831.css" media="screen">
 <link type="text/css" rel="stylesheet" href="./index_files/responsive.css" media="screen">
+<script language="javascript1.5">
+	function valid(){
+		if(document.regist.user.value==''){
+			alert("Please Enter The user Name");
+			return false;
+			}else if(document.regist.password.value==''){
+			alert("Please Enter The passward Name");
+			return false;
+			}else{
+				return true;
+				}
+		}
+
+</script>
 
 
 
@@ -21,11 +36,8 @@
 
 <!-- Come'on, no Javscript? Really?! -->
 <noscript>&lt;div id="flash" class="notice-bar alert-message info"&gt;&lt;span&gt;&lt;strong&gt;Whoops!&lt;/strong&gt; We require that you enable Javascript for optimal user experience.&lt;/span&gt;&lt;/div&gt;</noscript>
-
-
 <!-- The Actual Content -->
 <div id="header">
-
 <div class="navbar navbar-fixed-top">
      <div id="top-pixel-bar"></div>
      
@@ -46,13 +58,15 @@
               <div class="nav-collapse">
                     <!-- Right Navigation -->
                     <ul class="nav pull-right">
+
+					
                     <?php
 mysql_connect ("localhost","root","");
-mysql_select_db ("fortislifesb");
+mysql_select_db ("fortislife");
 $query = mysql_query("select * from heades where id=1");
 while ($row = mysql_fetch_array($query)) {
           ?>  
-<li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+<li class="parent "><a href="http://www.mypal.com" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
 <?php
 $query = mysql_query("select * from heades where id=2");
 while ($row = mysql_fetch_array($query)) {
@@ -86,11 +100,14 @@ while ($row = mysql_fetch_array($query)) {
       $query = mysql_query("select * from heades where id=6");
          while ($row = mysql_fetch_array($query)) {
           ?>
-  <li class="parent "><a href="#" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
+  <li class="parent "><a href="http://www.fortishealthcare.com/fortishealthcare-aboutus.html" class="parent-link"><?php echo $row[1];?></a><?php }?></li>
                       <li class="parent "><a href="#" class="parent-link"></a></li>
 							  
                          </li>
  <?php 
+ 
+ $today = date("d.m.y");  
+echo "<b>"."Today"."&nbsp;".$today."</b>";
  if(isset($_POST["submit"])){
 $result=mysql_query("select * from login where Username ='$_POST[user]' AND  Password='$_POST[password]'") or die(mysql_error());
 if(mysql_num_rows($result)>0){
@@ -113,31 +130,30 @@ if(mysql_num_rows($result)>0){
                                                        <li class="parent hidden-desktop  "><a href="#" class="parent-link">Login</a></li>
                               
                               <li class="parent visible-desktop dropdown login-dropdown">
-                                   <a href="./index_files/index.html" class="dropdown-toggle parent-link" data-toggle="dropdown">
-                                        Login <b class="caret"></b>                                   </a>
-     
-                                   <div class="dropdown-menu login-dropdown-form">
-                                        <form action="" method="post" accept-charset="utf-8">
+   <a href="./index_files/index.html" class="dropdown-toggle parent-link" data-toggle="dropdown">
+   Login <b class="caret"></b></a>
+ <div class="dropdown-menu login-dropdown-form">
+<form id="regist" name="regist" action="" method="post"onsubmit="return valid();">
 										<div style="display:none">
 <input type="hidden" name="form_key" value="765c6175a0ed479b94efaabc59c0531c">
 </div>                                             <label>
-                                                  <span>Username/Email</span>
+                                                  <span>Username</span>
                                                   
-                                                  <input type="text" name="user">
+                                                  <input type="text" name="user" id="user">
                                              </label>
                                              
                                              <label>
                                                   <span>Password</span>
                                                   
-                                                  <input type="password" name="password" class="span3">
+                                         <input type="password" name="password" class="span3" id="password">
                                              </label>
                                              
                                              <div class="form-actions">
                                                   <input type="submit" name="submit" class="btn btn-primary btn-large" value="Log in"> 
                                                   <span class="signup"><a href="signup.php">Signup!</a></span>                                             </div>
-                                        </form>                                   </div>
+                                        </form>                                   </div>	
                               </li>
-                                             </ul>
+                </ul>
             </div><!-- .nav-collapse -->
           </div>
      </div><!-- .navbar -->
@@ -161,13 +177,23 @@ if(mysql_num_rows($result)>0){
      </div>
 </div>
 </div> <!-- #header --><section id="spotlight" class="events">
-<iframe src="http://localhost/fortislifesb-copy/nivo/demo/demo.html" width="1360" height="300" scrolling="no" style="margin-top:-80px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
+<iframe src="http://localhost/fortislifesb/nivo/demo/demo.html" width="1360" height="300" scrolling="no" style="margin-top:-80px; margin-left:-10px; position:absolute;z-index:-1;"></iframe>
   <div class="">
+   
+  
           <div class="wrap">
-               <h1>Welcome to Fortis Shalimar Bagh</h1>
-               <h5>Your Caring Hospital .</h5>
+          <?php
+      $query = mysql_query("select * from footer where id=1");
+         while ($row = mysql_fetch_array($query)) {
+          ?>
+               <h1><?php echo $row[1];?></h1><?php }?>
+               <?php
+      $query = mysql_query("select * from footer where id=2");
+         while ($row = mysql_fetch_array($query)) {
+          ?>
+         <h5><?php echo $row[1];?> .</h5><?php }?>
           </div>
-     </div>
+  </div>
 </section>
 
 <!-- Content -->
@@ -208,7 +234,7 @@ if(mysql_num_rows($result)>0){
                                              <span class="listing-time"><?php echo $row[3];?></span><?php }?>
                                         </div>
                                    </a>
-                                                                 </li>
+                           </li>
                                                             <li class="link">
                                            <?php $query = mysql_query("select * from latest where id=3");
                                            while ($row = mysql_fetch_array($query)) {?>
@@ -220,7 +246,7 @@ if(mysql_num_rows($result)>0){
                                              <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
-                                                                 </li>
+                           </li>
 						
                                                                     
                                                                           
@@ -234,7 +260,7 @@ if(mysql_num_rows($result)>0){
                                              <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
-                                                                 </li>
+                           </li>
                                                             <li class="link">
                     <?php $query = mysql_query("select * from latest where id=5");
                      while ($row = mysql_fetch_array($query)) {?>
@@ -245,7 +271,7 @@ if(mysql_num_rows($result)>0){
                                              <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
-                                                                 </li>
+                           </li>
                                                             <li class="link">
 					<?php $query = mysql_query("select * from latest where id=6");
                      while ($row = mysql_fetch_array($query)) {?>
@@ -256,209 +282,33 @@ if(mysql_num_rows($result)>0){
                                              <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
                                         </div>
                                    </a>
-                                                                 </li>
-                                                       </ul><hr>
+                           </li>
+                      </ul><hr>
                     <ul class="discussion-listing normal-list floater">
                                         
-                                         
+                        <?php $query = mysql_query("select * from birth where date='17'AND month='06'");
+                     while ($row = mysql_fetch_array($query)) {?>
                     
-                    <li class="title">Birthday Week</li></ul>
+                    <li class="title"><?php echo $row[0]; ?> Today His Day</li></ul>
                     <ul id="news" class="discussion-listing normal-list floater newsticker">
                               
-                                                          <li class="link" style="display: none;">                                                                                                  <li class="link" style="display: list-item; ">
+    <li class="link" style="display: list-item; ">
                                                           
-                                   <a href="http://teensintech.com/discussions/startup49-inhouse-developer-n-auxn" class="link-wrap">
-                                        <img src="./index_files/<?php echo $row[2]; ?>" class="avatar" height="60" width="60">
-                                        <div class="item-content">
-                                             <h4><?php echo $row[personname]?></h4>
-                                             <span class="listing-time">August 28th @ 10:39 </span>                                        </div>
+  <a href="http://teensintech.com/discussions/startup49-inhouse-developer-n-auxn" class="link-wrap">
+                                                                                <div class="item-content">
+                                             <span class="listing-time"><b><?php echo $row[1]; ?>/<?php echo $row[2]; ?>/<?php echo $row[3]; ?></b></span> <?php }?>                                       </div>
                                    </a>
                                                                  </li>
 						
                                                                     
                                                                           
-                                                                            </ul>
+                      </ul>
                     
                     </div>
                     
           </div>
                
-                              <div class="span4 col col-discussion-posts">
-                    <div class="col-inner">
-                         <ul class="normal-list floater">
-                    <?php $query = mysql_query("select * from latest where id=7");
-                     while ($row = mysql_fetch_array($query)) {?>
-                                                            <li>
-                                   <a href="http://teensintech.com/discussions/3661" class="quote-wrap">
-                                        <div class="quote">
-                               <p><?php echo $row[1]; ?></p><?php }?>
-                                        
-                                             <div class="arrow"><div class="fill"></div></div>
-                                        </div>
-                                   </a>
-                      <?php $query = mysql_query("select * from latest where id=8");
-                     while ($row = mysql_fetch_array($query)) {?>
-                    
-                                                                      <div class="author">
-                                        <a href="http://teensintech.com/profiles/kiwan258" class="author-link">
-                                             <!-- <a href="#" class="btn btn-green">View Profile</a> -->
-                                             
-                                             <img src="./index_files/<?php echo $row[2]; ?>" height="45" width="45" class="avatar">
-                                             
-                                             <h4 class="author-slug"><?php echo $row[1]; ?></h4>
-                                             <h5 class="author-meta"><?php echo $row[3]; ?> </h5><?php }?>
-                                        </a>
-                                   </div>
-                                                                 </li>
-                      <?php $query = mysql_query("select * from latest where id=9");
-                     while ($row = mysql_fetch_array($query)) {?>
-                    
-                                                            <li>
-                                   <a href="http://teensintech.com/discussions/3660" class="quote-wrap">
-                                        <div class="quote">
-                                  <p><?php echo $row[1]; ?></p><?php }?>
-                                        
-                                             <div class="arrow"><div class="fill"></div></div>
-                                        </div>
-                                   </a>
-                        <?php $query = mysql_query("select * from latest where id=10");
-                     while ($row = mysql_fetch_array($query)) {?>
-
-                                                                      <div class="author">
-                                        <a href="http://teensintech.com/profiles/todd" class="author-link">
-                                             <!-- <a href="#" class="btn btn-green">View Profile</a> -->
-                                             
-                                             <img src="./index_files/<?php echo $row[2]; ?>" height="45" width="45" class="avatar">
-                                             
-                                             <h4 class="author-slug"><?php echo $row[1]; ?></h4>
-                                             <h5 class="author-meta"><?php echo $row[3]; ?></h5><?php }?>
-                                        </a>
-                                   </div>
-                                                                 </li>
-                                            <?php 
-                    $query = mysql_query("select * from latest where id=11");
-                     while ($row = mysql_fetch_array($query)) {
-           
-                                         ?>
-                                                            <li>
-                                   <a href="http://teensintech.com/discussions/3659" class="quote-wrap">
-                                        <div class="quote">
-                                                                                          <p><?php echo $row[1]; ?></p><?php }?>
-                                        
-                                             <div class="arrow"><div class="fill"></div></div>
-                                        </div>
-           
-                                   </a>
-           <?php 
-                    $query = mysql_query("select * from latest where id=12");
-                     while ($row = mysql_fetch_array($query)) {
-           
-                                         ?>
-           
-                                                                      <div class="author">
-                                        <a href="http://teensintech.com/profiles/ben" class="author-link">
-                                             <!-- <a href="#" class="btn btn-green">View Profile</a> -->
-                                             
-                                             <img src="./index_files/<?php echo $row[2]; ?>" height="45" width="45" class="avatar">
-                                             
-                                             <h4 class="author-slug"><?php echo $row[1]; ?></h4>
-                                             <h5 class="author-meta"><?php echo $row[3]; ?></h5><?php }?>
-                                        </a>
-                                   </div>
-                                                                 </li>
-                                                       </ul>
-                    </div><!-- .col-inner -->
-               </div>
-               
-               <div class="span4 col col-blog-posts">
-                    <div class="col-inner">
-           <?php 
-                    $query = mysql_query("select * from latest where id=13");
-                     while ($row = mysql_fetch_array($query)) {
-           
-                                         ?>
-                         
-                                                  <ul class="normal-list floater">
-                         <li class="title"><?php echo $row[1]; ?></li><?php }?>
-          
-           <?php 
-                    $query = mysql_query("select * from latest where id=14");
-                     while ($row = mysql_fetch_array($query)) {
-           
-                                         ?>
- 
-                                                       <li class="link">
-                                   <a href="http://teensintech.com/blog/2012/08/microsoft-imagine-cup-2013" class="link-wrap">
-                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
-                                        
-                                        <div class="item-content">
-                                             <h4><?php echo $row[1]; ?></h4>
-                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
-                                        </div>
-                                   </a>                              </li>
- <?php 
-                    $query = mysql_query("select * from latest where id=15");
-                     while ($row = mysql_fetch_array($query)) {
-           
-                                         ?>
-          
-                                                       <li class="link">
-                                   <a href="http://teensintech.com/blog/2012/08/what-do-you-want-teensintech" class="link-wrap">
-                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
-                                        
-                                        <div class="item-content">
-                                             <h4><?php echo $row[1]; ?></h4>
-                                             <span class="listing-time"><?php echo $row[3]; ?></span><?php }?>
-                                        </div>
-                                   </a>                              </li>
- <?php 
-                    $query = mysql_query("select * from latest where id=16");
-                     while ($row = mysql_fetch_array($query)) {
-           
-                                         ?>
-           
-                                                       <li class="link">
-                                   <a href="http://teensintech.com/blog/2012/08/teens-conference-wrapup" class="link-wrap">
-                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
-                                        
-                                        <div class="item-content">
-                                             <h4><?php echo $row[1]; ?></h4>
-                                             <span class="listing-time"><?php echo $row[3]; ?></span> <?php }?>                                       </div>
-                                   </a>                              </li>
- <?php 
-                    $query = mysql_query("select * from latest where id=17");
-                     while ($row = mysql_fetch_array($query)) {
-           
-                                         ?>
-           
-                                                       <li class="link">
-                                   <a href="http://teensintech.com/blog/2012/08/teensintech_rauh-conclude" class="link-wrap">
-                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
-                                        
-                                        <div class="item-content">
-                                             <h4><?php echo $row[1]; ?></h4>
-                                             <span class="listing-time"><?php echo $row[3]; ?></span>  <?php }?>                                      </div>
-                                   </a>                              </li>
-           
- <?php 
-                    $query = mysql_query("select * from latest where id=18");
-                     while ($row = mysql_fetch_array($query)) {
-           
-                                         ?>
-           
-                                                       <li class="link">
-                                   <a href="http://teensintech.com/blog/2012/08/teens-in-tech-gregory-koberger" class="link-wrap">
-                                        <img src="./index_files/<?php echo $row[2]; ?>" height="60" width="60" class="avatar">
-                                        
-                                        <div class="item-content">
-                                             <h4><?php echo $row[1]; ?></h4>
-                                             <span class="listing-time"><?php echo $row[3]; ?></span> <?php }?>                                       </div>
-                                   </a></li>
-                                                  </ul>
-                 </div>
-               </div>
-          </div>
-          
+       </div>
           <!-- Newsletter Prompt -->
           <div class="newsletter-prompt">
                <div class="row">
@@ -558,8 +408,16 @@ $(document).ready(function () {
 
 <!-- End Javascript -->
 
-<div id="feedback-link"><div class="feedback-inner"><a href="./index_files/index.html">Feedback?</a></div></div>
+<div id="feedback-link"><div class="feedback-inner">
+  <a href="https://www.google.co.in/">Feedback?</a>
+  <a href="https://www.facebook.com">Facebook?</a>
+  <a href="https://www.twitter.co.in/">Twitter?</a>
+  <a href="https://www.google.co.in/">Linkdin?</a>
+  </div>
+</div>
 <div id="loading" style="display:none;">Loading�</div>
  
 
-<div id="cortex-pie-0" class="cortex-pie" style="display: none; "><svg style="overflow: hidden; position: relative; " height="342" version="1.1" width="512" xmlns="http://www.w3.org/2000/svg"><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " x="0" y="0" width="1366" height="768" r="0" rx="0" ry="0" fill="#000000" stroke="#000" fill-opacity="0" stroke-opacity="0"></rect><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">Created with Rapha�l 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); "></defs><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#95e4e8" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/twitter.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#6481b5" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/facebook.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#545b6c" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/tumblr.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#df5747" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/gmail.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#ff78be" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/sharetoall.png"></svg></div><div id="cortex-overlay" style="display: none; "></div><img id="cortex-focus" style="display: none; "><div id="cortex-rainbow" style="display: none; "></div><div id="cortex-popups"></div><i title="Rapha�l Colour Picker" style="display: none; color: transparent; "></i></body></html>
+<div id="cortex-pie-0" class="cortex-pie" style="display: none; "><svg style="overflow: hidden; position: relative; " height="342" version="1.1" width="512" xmlns="http://www.w3.org/2000/svg"><rect style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " x="0" y="0" width="1366" height="768" r="0" rx="0" ry="0" fill="#000000" stroke="#000" fill-opacity="0" stroke-opacity="0"></rect>
+<desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">Created with Mithun&amp; Abhilash�l 2.1.0</desc>
+<defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); "></defs><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#95e4e8" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/twitter.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#6481b5" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/facebook.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#545b6c" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/tumblr.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#df5747" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/gmail.png"><path style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); stroke-opacity: 0; " fill="#ff78be" stroke="#000000" d="M0,0L10,0L10,10L0,10Z" stroke-opacity="0"></path><image style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); " x="0" y="0" width="10" height="10" preserveAspectRatio="none" href="chrome-extension://decglnkhpfoocpafihfbeodhgofefaoc/images/icons/sharetoall.png"></svg></div><div id="cortex-overlay" style="display: none; "></div><img id="cortex-focus" style="display: none; "><div id="cortex-rainbow" style="display: none; "></div><div id="cortex-popups"></div><i title="Rapha�l Colour Picker" style="display: none; color: transparent; "></i></body></html>
