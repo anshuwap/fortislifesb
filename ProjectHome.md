@@ -1,0 +1,9 @@
+Fortis Hospital, Shalimar Bagh, is brought to the people of the National Capital Territory by India's fastest growing Healthcare Group. In a short span of 10 years, it has grown into a network of 56 hospitals.
+
+Spread across the country in Delhi, Punjab, Haryana, Uttar Pradesh, Chhattisgarh, Maharashtra and Tamil Nadu, and abroad. Fortis has touched millions of lives and is committed to providing world class healthcare at an affordable cost.
+
+Fortis, Shalimar Bagh, is the first wide ranging Multi Super Speciality Hospital in this part of the city offering super specializations within departments, with the mission to provide quality medical care. This is the largest hospital in the Fortis Group so far, and is intended to serve the residents of North, West and North West Delhi, and the neighboring states. The Hospital focuses on super specialities in Cardiac Sciences, Neuro Sciences, Renal Sciences and GI Diseases, Orthopaedics including Spine and Joint Replacements, Minimal Access Surgery and Mother & Child, besides the complete range of allied medical disciplines.
+
+Fortis Group is committed to excellence and quality, and has established an international reputation for offering the very best in healthcare. At Fortis, in your neighborhood, you will experience the same care across wide ranging specialities, at affordable prices. Leading doctors, surgeons and specialists ensure that our standards of care are continually improving.
+
+Our friendly and professional team ensures that patients feel relaxed and comfortable during their stay. Wide-ranging quality medical treatment at the hospital includes latest diagnostic equipments like 1.5 Tesla MRI, state-of-the-art Dialysis facilities, Endoscopy Suites and Flat Panel Cath Lab. Latest generation Cardiac Volume CT from Siemens with adaptive spiral 4D facility, to name a few.
